@@ -23,6 +23,11 @@
 
     Route::post('/job', [JobController::class, 'store']);
 
+    Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
+
+    Route::put('/jobs/{job}', [JobController::class, 'update']);
+    
+    Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
     /*
     index - show all jobs
     show - show single job

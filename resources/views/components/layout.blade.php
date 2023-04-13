@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="images/logo.png" />
+        <link rel="icon" href="images/coding.png" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -19,7 +19,7 @@
                 theme: {
                     extend: {
                         colors: {
-                            laravel: "#0083B3",
+                            laravel: "#383333",
                         },
                     },
                 },
@@ -30,7 +30,7 @@
     <body class="mb-48">
         <nav class="flex justify-between items-center mb-4">
             <a href="/"
-                ><img class="w-24" src="images/logo.png" alt="" class="logo"
+                ><img class="w-24" src="images/coding.png" alt="" class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
                 <li>
@@ -58,7 +58,7 @@
 
             <div class="z-10">
                 <h1 class="text-6xl font-bold uppercase text-white">
-                    Job<span class="text-black">Posts</span>
+                    Job<span class="text-[#FFB833]">Posts</span>
                 </h1>
                 <p class="text-2xl text-gray-200 font-bold my-4">
                     Find or post jobs & projects

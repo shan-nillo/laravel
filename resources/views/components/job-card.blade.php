@@ -4,7 +4,7 @@
     <div class="flex">
         <img
             class="hidden w-48 mr-6 md:block"
-            src="{{ $job->logo ? asset('storage/'.$job->logo) : asset('/images/job.png') }}"
+            src="{{ $job->logo ? asset('storage/'.$job->logo) : asset('/images/logo.png') }}"
             alt=""
         />
         <div>

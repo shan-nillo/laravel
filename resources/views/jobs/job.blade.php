@@ -34,7 +34,7 @@
                 >
                     <img
                         class="w-48 mr-6 mb-6"
-                        src="{{ $job->logo ? asset('storage/'.$job->logo) : asset('/images/job.png') }}"
+                        src="{{ $job->logo ? asset('storage/'.$job->logo) : asset('/images/study.png') }}"
                         alt=""
                     />
 
@@ -70,6 +70,22 @@
                                 ><i class="fa-solid fa-globe"></i> Visit
                                 Website</a
                             >
+
+                            <a
+                                href="/jobs/{{$job->id}}/edit"
+                                target="_blank"
+                                class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
+                                ><i class="fa-solid fa-pencil"></i>
+                                Edit Job</a
+                            >
+
+                            <form method="POST" action="/jobs/{{$job->id}}">
+                                @csrf
+                                @method('DELETE')
+                                <button class="text-red-500">
+                                    <i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

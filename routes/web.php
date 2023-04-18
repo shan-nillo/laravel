@@ -2,7 +2,8 @@
 
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\JobController;
-    use App\Models\Job;
+use App\Http\Controllers\UserController;
+use App\Models\Job;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -28,6 +29,14 @@
     Route::put('/jobs/{job}', [JobController::class, 'update']);
     
     Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
+    
+    Route::get('/register', [UserController::class, 'create']);
+
+    //save new user
+    Route::post('/users', [UserController::class, 'store']);
+
+    //logout
+    Route::post('/logout', [UserController::class,'logout']);
     /*
     index - show all jobs
     show - show single job

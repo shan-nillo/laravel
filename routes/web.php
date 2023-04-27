@@ -1,9 +1,9 @@
 <?php
 
     use Illuminate\Support\Facades\Route;
-    use App\Http\Controllers\JobController;
-use App\Http\Controllers\UserController;
-use App\Models\Job;
+    use App\Http\Controllers\ProductController;
+    use App\Http\Controllers\UserController;
+    use App\Models\Product;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -15,20 +15,20 @@ use App\Models\Job;
     |
     */
 
-    // Define the route to render the "jobs" view
-    Route::get('/', [JobController::class, 'index']);
+    // Define the route to render the "products" view
+    Route::get('/', [ProductController::class, 'index']);
 
-    Route::get('/job/create', [JobController::class, 'create']);
+    Route::get('/product/create', [ProductController::class, 'create']);
 
-    Route::get('/job/{job}', [JobController::class, 'show']);
+    Route::get('/product/{product}', [ProductController::class, 'show']);
 
-    Route::post('/job', [JobController::class, 'store']);
+    Route::post('/product', [ProductController::class, 'store']);
 
-    Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
+    Route::get('/products/{product}/edit', [ProductController::class, 'edit']);
 
-    Route::put('/jobs/{job}', [JobController::class, 'update']);
+    Route::put('/products/{product}', [ProductController::class, 'update']);
     
-    Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
+    Route::delete('/products/{product}', [ProductController::class, 'destroy']);
     
     Route::get('/register', [UserController::class, 'create']);
 
@@ -38,11 +38,11 @@ use App\Models\Job;
     //logout
     Route::post('/logout', [UserController::class,'logout']);
     /*
-    index - show all jobs
-    show - show single job
-    create - show form to create new job
-    store - store new jobs
-    edit - update job
-    destroy - delete job
+    index - show all products
+    show - show single product
+    create - show form to create new product
+    store - store new products
+    edit - update product
+    destroy - delete product
     */
 ?>

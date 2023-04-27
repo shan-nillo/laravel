@@ -1,43 +1,43 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Job;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Session\Session;
 
-class JobController extends Controller
+class ProductController extends Controller
 {
     /**
-     * Show all job postings
+     * Show all product postings
      */
 
     public function index(){
-        return view('jobs.jobs', [
-            'jobs' => Job::latest()->filter(request(['tag','search']))->paginate(5)
+        return view('products.products', [
+            'products' => Product::latest()->filter(request(['tag','search']))->paginate(6)
         ]);
     }
 
     /**
-     * Show all job postings
+     * Show all product postings
      * @param Job
      */
-    public function show(Job $job){
-        return view('jobs.job', [
-            'job' => $job
+    public function show(Product $product){
+        return view('products.product', [
+            'product' => $product
         ]);
     }
 
     public function create(){
-        return view('jobs.create');
+        return view('products.create');
     }
 
     public function store(Request $request){
         $formContents = $request->validate([
             'title' => 'required',
-            // 'company' => 'required|unique:jobs'
-            'company' => ['required', Rule::unique('jobs','company')],
+            // 'company' => 'required|unique:products'
+            'company' => ['required', Rule::unique('products','company')],
             'location' => 'required',
             'website' => 'required',
             'email' => ['required','email'],
@@ -49,21 +49,21 @@ class JobController extends Controller
             $formContents['logo'] = $request->file('logo')->store('logos','public');
         }
         
-        Job::create($formContents);
+        Product::create($formContents);
 
-        return redirect('/')->with('message','New job posted successfully!');
+        return redirect('/')->with('message','New product posted successfully!');
     }
 
-    public function edit(Job $job){
-        return view('jobs.edit', [
-            'job' => $job
+    public function edit(Product $product){
+        return view('products.edit', [
+            'product' => $product
         ]);
     }
 
-    public function update(Request $request, Job $job){
+    public function update(Request $request, Product $product){
         $formContents = $request->validate([
             'title' => 'required',
-            // 'company' => 'required|unique:jobs'
+            // 'company' => 'required|unique:products'
             'company' => 'required',
             'location' => 'required',
             'website' => 'required',
@@ -74,18 +74,18 @@ class JobController extends Controller
 
         if($request->hasFile('logo')){
             $formContents['logo'] = $request->file('logo')->store('logos','public');
-                if(File::exists('storage/'.$job->logo)){
-                    File::delete('storage/'.$job->logo);
+                if(File::exists('storage/'.$product->logo)){
+                    File::delete('storage/'.$product->logo);
                 }
         }
         
-        $job->update($formContents);
+        $product->update($formContents);
 
-        return redirect('/')->with('message','Updated job posted successfully!');
+        return redirect('/')->with('message','Updated product successfully!');
     }
 
-    public function destroy(Job $job){
-        $job->delete();
-        return redirect('/')->with('message','Deleted job posted successfully!');
+    public function destroy(Product $product){
+        $product->delete();
+        return redirect('/')->with('message','Deleted product successfully!');
     }
 }

@@ -9,19 +9,13 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','company','location','website','email','description','tags','logo'];
+    protected $fillable = ['name','description','image','price','unit'];
 
     public function scopeFilter($query, array $filters){
-        if ($filters['tag'] ?? false){
-            $query->where('tags', 'like', '%'.$filters['tag'].'%');
-        }
 
         if ($filters['search'] ?? false){
-            $query->where('title', 'like', '%'.$filters['search'].'%')
-                ->orWhere('description', 'like', '%'.$filters['search'].'%')
-                ->orWhere('tags', 'like', '%'.$filters['search'].'%')
-                ->orWhere('company', 'like', '%'.$filters['search'].'%')
-                ->orWhere('location', 'like', '%'.$filters['search'].'%');
+            $query->where('name', 'like', '%'.$filters['search'].'%')
+                ->orWhere('description', 'like', '%'.$filters['search'].'%');
         }
     }
 }

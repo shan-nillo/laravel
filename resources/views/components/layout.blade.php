@@ -28,6 +28,7 @@
     </footer>
     <!-- end of footer -->
     
+    <x-flash-message/>
     
   </body>
 </html>

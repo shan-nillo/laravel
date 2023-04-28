@@ -12,17 +12,18 @@
                 @csrf
                 <div class="data">
                     <label
-                        for="company"
-                        >Company Name</label
+                        for="name"
+                        >Product Name</label
                     >
 
                     <input
                         type="text"
-                        name="company"
-                        value="{{old('company')}}"
+                        name="name"
+                        placeholder="Example: Framed illustration, watercolor, brush"
+                        value="{{old('name')}}"
                     />
 
-                    @error('company')
+                    @error('name')
                         <p>
                             {{ $message }}
                         </p>
@@ -31,17 +32,18 @@
 
                 <div class="data">
                     <label
-                        for="company"
-                        >Company Name</label
+                        for="description"
+                        >Description</label
                     >
                     
                     <input
                         type="text"
-                        name="company"
-                        value="{{old('company')}}"
+                        name="description"
+                        placeholder="Include size, color, etc."
+                        value="{{old('description')}}"
                     />
 
-                    @error('company')
+                    @error('description')
                         <p>
                             {{ $message }}
                         </p>
@@ -50,17 +52,15 @@
 
                 <div class="data">
                     <label
-                        for="company"
-                        >Company Name</label
+                        >Image</label
                     >
                     
                     <input
-                        type="text"
-                        name="company"
-                        value="{{old('company')}}"
+                        type="file"
+                        name="image"
                     />
 
-                    @error('company')
+                    @error('image')
                         <p>
                             {{ $message }}
                         </p>
@@ -69,17 +69,18 @@
 
                 <div class="data">
                     <label
-                        for="company"
-                        >Company Name</label
+                        for="price"
+                        >Product Price</label
                     >
                     
                     <input
-                        type="text"
-                        name="company"
-                        value="{{old('company')}}"
+                        type="number"
+                        min="1"
+                        name="price"
+                        value="{{old('price')}}"
                     />
 
-                    @error('company')
+                    @error('price')
                         <p>
                             {{ $message }}
                         </p>
@@ -88,17 +89,17 @@
 
                 <div class="data">
                     <label
-                        for="company"
-                        >Company Name</label
+                        for="Unit"
+                        >Stock</label
                     >
                     
                     <input
-                        type="text"
-                        name="company"
-                        value="{{old('company')}}"
+                        type="number"
+                        name="unit"
+                        value="{{old('unit')}}"
                     />
 
-                    @error('company')
+                    @error('unit')
                         <p>
                             {{ $message }}
                         </p>

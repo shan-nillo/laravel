@@ -13,14 +13,14 @@
                 @method('PUT')
 
                 <div class="data">
-                    <label for="company">Company Name</label>
+                    <label for="company">Product Name</label>
                     <input
                         type="text"
-                        name="company"
-                        value="{{$product->company}}"
+                        name="name"
+                        value="{{$product->name}}"
                     />
 
-                    @error('company')
+                    @error('name')
                         <p>
                             {{ $message }}
                         </p>
@@ -28,14 +28,14 @@
                 </div>
 
                 <div class="data">
-                    <label for="title">Job Title</label>
+                    <label for="title">Description</label>
                     <input
                         type="text"
-                        name="title"
-                        value="{{$product->title}}"
+                        name="description"
+                        value="{{$product->description}}"
                     />
 
-                    @error('title')
+                    @error('description')
                         <p>
                             {{ $message }}
                         </p>
@@ -43,23 +43,23 @@
                 </div>
 
                 <div class="data">
-                    <label for="Logo">Company Logo</label>
+                    <label for="image">Image</label>
                     <input
                         type="file"
-                        name="logo"
-                        value="{{$product->logo}}"
+                        name="image"
+                        value="{{$product->image}}"
                     />
                 </div>
 
                 <div class="data">
-                    <label for="company">Company Name</label>
+                    <label for="price">Price</label>
                     <input
                         type="text"
-                        name="company"
-                        value="{{$product->company}}"
+                        name="price"
+                        value="{{$product->price}}"
                     />
 
-                    @error('company')
+                    @error('price')
                         <p>
                             {{ $message }}
                         </p>
@@ -67,14 +67,14 @@
                 </div>
 
                 <div class="data">
-                    <label for="title">Job Title</label>
+                    <label for="unit">Stock</label>
                     <input
                         type="text"
-                        name="title"
-                        value="{{$product->title}}"
+                        name="unit"
+                        value="{{$product->unit}}"
                     />
 
-                    @error('title')
+                    @error('unit')
                         <p>
                             {{ $message }}
                         </p>

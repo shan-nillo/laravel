@@ -41,13 +41,13 @@
                <div class="data">
                   <label
                      for="password"
-                     value="{{ old('password')}}"
                   >
                      Password
                   </label>
                   <input
                      type="password"
                      name="password"
+                     value="{{ old('password')}}"
                   />
                   @error('password')
                      <p>
@@ -65,6 +65,7 @@
                   <input
                      type="password"
                      name="password_confirmation"
+                     value="{{ old('password')}}"
                   />
                   @error('password_confirmation')
                      <p>

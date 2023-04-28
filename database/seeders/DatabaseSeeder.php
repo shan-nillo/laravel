@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Job;
+use App\Models\Product;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -66,6 +66,6 @@ class DatabaseSeeder extends Seeder
             ]
         ];
 
-        Job::insert($content);
+        Product::insert($content);
     }
 }

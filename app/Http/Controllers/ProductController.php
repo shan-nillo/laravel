@@ -15,7 +15,7 @@ class ProductController extends Controller
 
     public function index(){
         return view('products.products', [
-            'products' => Product::latest()->filter(request(['tag','search']))->paginate(6)
+            'products' => Product::latest()->filter(request(['search']))->paginate(6)
         ]);
     }
 
@@ -35,18 +35,15 @@ class ProductController extends Controller
 
     public function store(Request $request){
         $formContents = $request->validate([
-            'title' => 'required',
+            'name' => 'required',
             // 'company' => 'required|unique:products'
-            'company' => ['required', Rule::unique('products','company')],
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required','email'],
-            'tags' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'price' => 'required',
+            'unit' => 'required'
         ]);
 
-        if($request->hasFile('logo')){
-            $formContents['logo'] = $request->file('logo')->store('logos','public');
+        if($request->hasFile('image')){
+            $formContents['image'] = $request->file('image')->store('images','public');
         }
         
         Product::create($formContents);
@@ -62,20 +59,17 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product){
         $formContents = $request->validate([
-            'title' => 'required',
+            'name' => 'required',
             // 'company' => 'required|unique:products'
-            'company' => 'required',
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required','email'],
-            'tags' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'price' => 'required',
+            'unit' => 'required'
         ]);
 
-        if($request->hasFile('logo')){
-            $formContents['logo'] = $request->file('logo')->store('logos','public');
-                if(File::exists('storage/'.$product->logo)){
-                    File::delete('storage/'.$product->logo);
+        if($request->hasFile('image')){
+            $formContents['image'] = $request->file('image')->store('images','public');
+                if(File::exists('storage/'.$product->image)){
+                    File::delete('storage/'.$product->image);
                 }
         }
         

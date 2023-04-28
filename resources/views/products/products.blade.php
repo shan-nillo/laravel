@@ -3,18 +3,18 @@
     <header>
       <nav class = "navbar">
         <div class = "container">
-          <a href = "index.html" class = "navbar-brand">Designsby.Miru</a>
+          <a href = "/" class = "navbar-brand">Designsby.Miru</a>
           <div class = "navbar-nav">
             @auth
               <form class="inline" method="POST" action="/logout">
-                <a href = "">Welcome {{auth()->user()->name}} !</a>
-                <a href = "">home</a>
-                <a href="/product/create">add</a>
-            
-                @csrf
-                <button type="submit">
-                  logout
-                </button>
+                  <a href = "">Welcome {{auth()->user()->name}} !</a>
+                  <a href = "/">home</a>
+                  <a href="/product/create">add</a>
+              
+                  @csrf
+                  <button type="submit">
+                    logout
+                  </button>
               </form>
             @else
                 <a href = "/register">sign up</a>

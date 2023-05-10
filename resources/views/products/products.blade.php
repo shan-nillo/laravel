@@ -18,7 +18,7 @@
               </form>
             @else
                 <a href = "/register">sign up</a>
-                <a href = "">login</a>
+                <a href = "/login">login</a>
             @endauth
           </div>
         </div>
